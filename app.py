@@ -23,8 +23,8 @@ def main():
             st.dataframe(numpy_data)
 
             for row in numpy_data:
-                if row(24) != "NaN":
-                    st.write(row(24))
+                if row[24] != "NaN":
+                    st.write(row[24])
             
         except ValueError:
             st.warning("Upload Error")

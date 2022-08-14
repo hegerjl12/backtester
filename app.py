@@ -21,6 +21,10 @@ def main():
             numpy_data = panda_data.iloc[:,:].to_numpy()
     
             st.dataframe(numpy_data)
+
+            for row in numpy_data:
+                if row(24).isnumeric():
+                    st.write(row(24))
             
         except ValueError:
             st.warning("Upload Error")

@@ -59,8 +59,8 @@ def main():
                 
             st.metric("Profit Per Share", round(profit,2), delta=round(profit,2))
 
-            st.metric("Portfolio Value", round(portfolio_value,2), delta=str("$" + str(round(portfolio_value-initial_portfolio_value),2)))
-            st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(((portfolio_value/initial_portfolio_value)-1)*100) + "%"))
+            st.metric("Portfolio Value", round(portfolio_value,2), delta=str("$" + str(round((portfolio_value-initial_portfolio_value),2)))
+            st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0) + "%"))
 
             st.metric("Days", str(difference))
             

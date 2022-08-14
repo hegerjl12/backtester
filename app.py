@@ -43,8 +43,7 @@ def main():
                     trading = True
                     trade = buy_price * planned_share_purchase
                     portfolio_value -= (trade * (1+commission_adjustment))
-                    st.write(portfolio_value)
-                
+               
                 if not np.isnan(row[25]):
                     sell_price = row[4]
                     trading = False
@@ -56,9 +55,6 @@ def main():
                     trade = 0
                     buy_price = 0
                     sell_price = 0
-                    st.write(portfolio_value)
-
-
                 
             st.metric("Profit", round(profit,2))
 

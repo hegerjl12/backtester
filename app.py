@@ -32,11 +32,17 @@ def main():
             profit = 0
             buy_price = 0
             sell_price = 0
+            portfolio_value = 5000
+            commission_adjustment = .003
+            trade = 0
+            planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=0)
 
             for row in numpy_data:
                 if not np.isnan(row[24]):
                     buy_price = row[4]
                     trading = True
+                    trade = buy_price * planned_share_purchase
+                    portfolio_value -= (trade * (1+commission_adjustment))
                 
                 if not np.isnan(row[25]):
                     sell_price = row[4]
@@ -45,10 +51,14 @@ def main():
                 if not trading:
                     #st.write(sell_price-buy_price)
                     profit += (sell_price-buy_price)
+                    portfolio_value += ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+                    trade = 0
                     buy_price = 0
                     sell_price = 0
                 
             st.metric("Profit", round(profit,2))
+
+            st.metric("Portfolio Value", round(portfolio_value,2))
 
             st.metric("Days", str(difference))
             

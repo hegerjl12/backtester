@@ -37,6 +37,7 @@ def main():
                     trading = False
             
                 if not trading:
+                    st.write(sell_price-buy_price)
                     profit += (sell_price-buy_price)
                     buy_price = 0
                     sell_price = 0

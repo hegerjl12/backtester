@@ -50,7 +50,7 @@ def main():
                 
             st.metric("Profit", round(profit,2))
 
-            st.metric("Days", difference)
+            st.metric("Days", str(difference))
             
         except ValueError:
             st.warning("Upload Error")

@@ -25,7 +25,7 @@ def main():
             start = numpy_data[0,0]
             pd_start = pd.to_datetime(start,utc=True)
             end = numpy_data[-1, 0]
-            pd_end = pd.tp_to_datetime(end,utc=True)
+            pd_end = pd.to_datetime(end,utc=True)
             difference = pd_end - pd_start
 
             trading = False

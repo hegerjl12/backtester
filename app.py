@@ -23,7 +23,7 @@ def main():
             st.dataframe(numpy_data)
 
             for row in numpy_data:
-                if np.isnan(row[]24]):
+                if np.isnan(row[24]):
                     st.write(row[24])
             
         except ValueError:

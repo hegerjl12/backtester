@@ -18,7 +18,7 @@ def main():
         try:
 
             panda_data = pd.read_csv(raw_data)
-            numpy_data = panda_data.iloc[2:,1:].to_numpy()
+            numpy_data = panda_data.iloc[:,:].to_numpy()
     
             st.dataframe(numpy_data)
             

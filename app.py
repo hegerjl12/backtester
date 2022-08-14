@@ -22,9 +22,24 @@ def main():
     
             st.dataframe(numpy_data)
 
+            trading = False
+            profit = 0
+            buy_price = 0
+            sell_price = 0
+
             for row in numpy_data:
                 if not np.isnan(row[24]):
-                    st.write(row[24])
+                    buy_price = row[4]
+                    trading = True
+                
+                if not np.isnan(row[25]):
+                    sell_price = row[4]
+                    trading = False
+            
+                if not Trading:
+                    profit += (sell_price-buy_price)
+                
+            st.write(profit)
             
         except ValueError:
             st.warning("Upload Error")

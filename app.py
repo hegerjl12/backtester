@@ -23,7 +23,10 @@ def main():
             #st.dataframe(numpy_data)
 
             start = numpy_data[0,0]
-            end = numpy_data[-1, 0]
+            pd_start = pd.to_datetime(start,utc=True)
+            end = numpy_data[-1, 0]\\
+            pd_end = pd.tp_datetime(end,utc=True)
+            difference = pd_end - pd_start
 
             trading = False
             profit = 0
@@ -46,7 +49,8 @@ def main():
                     sell_price = 0
                 
             st.metric("Profit", round(profit,2))
-            st.metric("Days", end-start)
+
+            st.metric("Days", difference)
             
         except ValueError:
             st.warning("Upload Error")

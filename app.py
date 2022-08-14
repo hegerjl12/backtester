@@ -13,7 +13,7 @@ def main():
 
     raw_data = st.file_uploader("Upload TradingView Chart Export")
 
-    if data is not None:
+    if raw_data is not None:
 
         try:
 

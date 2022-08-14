@@ -22,6 +22,9 @@ def main():
     
             #st.dataframe(numpy_data)
 
+            start = numpy_data.iloc[0,0]
+            end = numpy_data.iloc[-1, 0]
+
             trading = False
             profit = 0
             buy_price = 0
@@ -43,6 +46,7 @@ def main():
                     sell_price = 0
                 
             st.metric("Profit", round(profit,2))
+            st.metric("Days", end-start)
             
         except ValueError:
             st.warning("Upload Error")

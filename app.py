@@ -22,8 +22,8 @@ def main():
     
             #st.dataframe(numpy_data)
 
-            start = numpy_data.iloc[0,0]
-            end = numpy_data.iloc[-1, 0]
+            start = numpy_data[0,0]
+            end = numpy_data[-1, 0]
 
             trading = False
             profit = 0

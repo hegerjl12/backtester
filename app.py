@@ -32,7 +32,8 @@ def main():
             profit = 0
             buy_price = 0
             sell_price = 0
-            portfolio_value = 5000
+            initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=0)
+            portfolio_value = initial_portfolio_value
             commission_adjustment = .003
             trade = 0
             planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=0)
@@ -56,9 +57,10 @@ def main():
                     buy_price = 0
                     sell_price = 0
                 
-            st.metric("Profit", round(profit,2))
+            st.metric("Profit Per Share", round(profit,2), delta=round(profit,2))
 
-            st.metric("Portfolio Value", round(portfolio_value,2))
+            st.metric("Portfolio Value", round(portfolio_value,2), delta=str("$" + (portfolio_value-initial_portfolio_value))
+            st.metric("Portfolio Value", round(portfolio_value,2), delta=str((((portfolio_value-initial_portfolio_value)-1)*100) + "%")
 
             st.metric("Days", str(difference))
             

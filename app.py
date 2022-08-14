@@ -23,7 +23,7 @@ def main():
             st.dataframe(numpy_data)
 
             for row in numpy_data:
-                if row(24).isnumeric():
+                if row(24) != "NaN":
                     st.write(row(24))
             
         except ValueError:

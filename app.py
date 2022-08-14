@@ -20,7 +20,7 @@ def main():
             panda_data = pd.read_csv(raw_data)
             numpy_data = panda_data.iloc[:,:].to_numpy()
     
-            st.dataframe(numpy_data)
+            #st.dataframe(numpy_data)
 
             trading = False
             profit = 0
@@ -37,12 +37,12 @@ def main():
                     trading = False
             
                 if not trading:
-                    st.write(sell_price-buy_price)
+                    #st.write(sell_price-buy_price)
                     profit += (sell_price-buy_price)
                     buy_price = 0
                     sell_price = 0
                 
-            st.write(profit)
+            st.metric("Profit", profit)
             
         except ValueError:
             st.warning("Upload Error")

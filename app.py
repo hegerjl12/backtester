@@ -42,7 +42,7 @@ def main():
                     buy_price = 0
                     sell_price = 0
                 
-            st.metric("Profit", profit)
+            st.metric("Profit", round(profit,2))
             
         except ValueError:
             st.warning("Upload Error")

@@ -7,7 +7,7 @@ def main():
 
     st.set_page_config(
         page_title="Back Tester",
-        page_icon="🧮")
+        page_icon="📈")
 
     st.title("TradingView Back Tester")
 
@@ -57,12 +57,19 @@ def main():
                     buy_price = 0
                     sell_price = 0
                 
-            st.metric("Profit Per Share", round(profit,2), delta=round(profit,2))
+            col1, col2, col3, col4 = st.columns(4)
 
-            st.metric("Portfolio Value", round(portfolio_value,2), delta=str("$" + str(round((portfolio_value-initial_portfolio_value),2))))
-            st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
+            with col1:
+                st.metric("Profit Per Share", round(profit,2), delta=round(profit,2))
 
-            st.metric("Days", str(difference))
+            with col2:
+                st.metric("Portfolio Value", round(portfolio_value,2), delta=str("$" + str(round((portfolio_value-initial_portfolio_value),2))))
+            
+            with col3:
+                st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
+
+            with col4:
+                st.metric("Days", str(difference))
             
         except ValueError:
             st.warning("Upload Error")

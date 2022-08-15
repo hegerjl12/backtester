@@ -32,11 +32,11 @@ def main():
             profit = 0
             buy_price = 0
             sell_price = 0
-            initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=1)
+            initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
             commission_adjustment = .003
             trade = 0
-            planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=0)
+            planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=2)
 
             for row in numpy_data:
                 if not np.isnan(row[24]):

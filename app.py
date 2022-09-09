@@ -36,6 +36,16 @@ def main():
             buy_price = 0
             sell_price = 0
             trade_count = 0
+            buy_select = st.radio("Select Buy Trigger", ("Immediate", "Bar Close"))
+            sell_select = st.radio("Select Sell Trigger", ("Immediate", "Bar Close"))
+            if buy_select == "Immediate":
+                buy_value = 3
+            if buy_select == "Bar Close":
+                buy_value = 25
+            if sell_select == "Immediate":
+                sell_value = 3
+            if sell_select == "Bar Close":
+                sell_value = 26
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
             commission_adjustment = .0025
@@ -44,14 +54,16 @@ def main():
 
             for row in numpy_data:
                 if not np.isnan(row[25]):
-                    buy_price = row[3]
+                    buy_price = row[buy_value]
+                    st.write(buy_price)
                     trading = True
                     trade = buy_price * planned_share_purchase
                     adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
                 if not np.isnan(row[26]):
-                    sell_price = row[3]
+                    sell_price = row[sell_value]
+                    st.write(sell_price)
                     trading = False
                     trade_count += 1
             

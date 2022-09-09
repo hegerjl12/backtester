@@ -39,13 +39,13 @@ def main():
             buy_select = st.radio("Select Buy Trigger", ("Immediate", "Bar Close"))
             sell_select = st.radio("Select Sell Trigger", ("Immediate", "Bar Close"))
             if buy_select == "Immediate":
-                buy_value = 4
-            if buy_select == "Bar Close":
                 buy_value = 25
+            if buy_select == "Bar Close":
+                buy_value = 4
             if sell_select == "Immediate":
-                sell_value = 4
-            if sell_select == "Bar Close":
                 sell_value = 26
+            if sell_select == "Bar Close":
+                sell_value = 4
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
             commission_adjustment = .0025

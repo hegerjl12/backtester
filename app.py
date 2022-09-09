@@ -35,6 +35,7 @@ def main():
             adj_out = 0
             buy_price = 0
             sell_price = 0
+            trade_count = 0
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
             commission_adjustment = .003
@@ -52,6 +53,7 @@ def main():
                 if not np.isnan(row[26]):
                     sell_price = row[3]
                     trading = False
+                    trade_count += 1
             
                 if not trading:
                     adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
@@ -62,17 +64,18 @@ def main():
                     trade = 0
                     buy_price = 0
                     sell_price = 0
+                    
                 
             col1, col2, col3, col4 = st.columns(4)
 
             with col1:
-                st.metric("Profit Per Share", round(profit,2), delta=round(profit,2))
+                st.metric("Profit", round(profit,2), delta=round(profit,2))
 
             with col2:
-                st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((portfolio_value-initial_portfolio_value),2)) + "$"))
+                st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
             
             with col3:
-                st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
+                st.metric("Number of Trades", trade_count)
 
             with col4:
                 st.metric("Days", str(difference))

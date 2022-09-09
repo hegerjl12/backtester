@@ -19,9 +19,10 @@ def main():
 
             panda_data = pd.read_csv(raw_data)
             numpy_data = panda_data.iloc[:,:].to_numpy()
+       
     
-            #st.dataframe(numpy_data)
-
+            st.dataframe(numpy_data)
+        
             start = numpy_data[0,0]
             pd_start = pd.to_datetime(start,utc=True)
             end = numpy_data[-1, 0]

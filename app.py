@@ -40,16 +40,16 @@ def main():
             planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=2)
 
             for row in numpy_data:
-                if not np.isnan(row[24]):
+                if not np.isnan(row[25]):
                     buy_price = row[3]
-                    st.write(row[24])
+                    st.write(row[25])
                     st.write(buy_price)
                     trading = True
                     trade = buy_price * planned_share_purchase
                     portfolio_value -= (trade * (1+commission_adjustment))
                
-                if not np.isnan(row[25]):
-                    st.write(row[25])
+                if not np.isnan(row[26]):
+                    st.write(row[26])
                     sell_price = row[3]
                     trading = False
             

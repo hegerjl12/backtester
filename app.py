@@ -38,7 +38,7 @@ def main():
             trade_count = 0
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
-            commission_adjustment = .003
+            commission_adjustment = .0025
             trade = 0
             planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=2)
 

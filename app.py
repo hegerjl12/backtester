@@ -46,7 +46,7 @@ def main():
                     buy_price = row[3]
                     trading = True
                     trade = buy_price * planned_share_purchase
-                    adj_in = trade * (1+commission_adjustment))
+                    adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
                 if not np.isnan(row[26]):

@@ -31,6 +31,8 @@ def main():
 
             trading = False
             profit = 0
+            adj_in = 0
+            adj_out = 0
             buy_price = 0
             sell_price = 0
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
@@ -44,15 +46,19 @@ def main():
                     buy_price = row[3]
                     trading = True
                     trade = buy_price * planned_share_purchase
-                    portfolio_value -= (trade * (1+commission_adjustment))
+                    adj_in = trade * (1+commission_adjustment))
+                    portfolio_value -= adj_in
                
                 if not np.isnan(row[26]):
                     sell_price = row[3]
                     trading = False
             
                 if not trading:
-                    profit += (sell_price-buy_price)
-                    portfolio_value += ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+                    adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+                    portfolio_value += adj_out
+                    profit += (adj_out - adj_in)
+                    adj_in = 0
+                    adj_out = 0
                     trade = 0
                     buy_price = 0
                     sell_price = 0

@@ -40,7 +40,7 @@ def main():
 
             for row in numpy_data:
                 if not np.isnan(row[24]):
-                    buy_price = row[4]
+                    buy_price = row[3]
                     st.write(row[24])
                     st.write(buy_price)
                     trading = True
@@ -49,11 +49,11 @@ def main():
                
                 if not np.isnan(row[25]):
                     st.write(row[25])
-                    sell_price = row[4]
+                    sell_price = row[3]
                     trading = False
             
                 if not trading:
-                    #st.write(sell_price-buy_price)
+                    st.write(sell_price-buy_price)
                     profit += (sell_price-buy_price)
                     portfolio_value += ((sell_price * planned_share_purchase) * (1-commission_adjustment))
                     trade = 0

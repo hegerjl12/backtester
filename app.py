@@ -55,6 +55,7 @@ def main():
             for row in numpy_data:
                 if not np.isnan(row[25]):
                     buy_price = row[buy_value]
+                    st.write(row)
                     st.write(buy_price)
                     trading = True
                     trade = buy_price * planned_share_purchase

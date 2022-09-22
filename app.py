@@ -43,7 +43,7 @@ def main():
             if buy_select == "Bar Close":
                 buy_value = 3
             if sell_select == "Immediate":
-                sell_value = 24
+                sell_value = 25
             if sell_select == "Bar Close":
                 sell_value = 4
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
@@ -62,21 +62,21 @@ def main():
                     adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
-                if not pd.isna(row[24]):
+                if not pd.isna(row[25]):
                     sell_price = row[sell_value]
                     st.write(sell_price)
                     trading = False
                     trade_count += 1
             
-                if not trading:
-                    adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
-                    portfolio_value += adj_out
-                    profit += (adj_out - adj_in)
-                    adj_in = 0
-                    adj_out = 0
-                    trade = 0
-                    buy_price = 0
-                    sell_price = 0
+             #   if not trading:
+             #       adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+             #       portfolio_value += adj_out
+             #       profit += (adj_out - adj_in)
+             #       adj_in = 0
+             ##       adj_out = 0
+              #      trade = 0
+              #      buy_price = 0
+              #      sell_price = 0
                     
                 
             col1, col2, col3, col4 = st.columns(4)

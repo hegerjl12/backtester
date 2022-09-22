@@ -53,7 +53,7 @@ def main():
             planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=2)
 
             for row in numpy_data:
-                if row[24] != 'nan':
+                if not np.isnan(row[24]):
                     buy_price = row[buy_value]
                     st.write(row)
                     st.write(buy_price)
@@ -62,7 +62,7 @@ def main():
                     adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
-                if row[25] != 'nan':
+                if not np.isnan(row[25]):
                     sell_price = row[sell_value]
                     st.write(sell_price)
                     trading = False

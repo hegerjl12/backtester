@@ -94,8 +94,8 @@ def main():
       #      with col4:
       #          st.metric("Days", str(difference))
             
-       # except ValueError:
-       #     st.warning("Upload Error")
+        except ValueError:
+            st.warning("Upload Error")
 
 if __name__ == "__main__":
     main()

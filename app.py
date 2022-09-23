@@ -63,7 +63,7 @@ def main():
                     adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
-                if not math.isnan(row[25]):
+                if not row[25] == 'NaN':
                     sell_price = row[sell_value]
                     st.write(sell_price)
                     trading = False

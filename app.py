@@ -58,7 +58,7 @@ def main():
             for row in numpy_data:
                 if not np.isnan(row[2]):
                     buy_price = row[buy_value]
-                    st.write(buy_price)
+                   # st.write(buy_price)
                     trading = True
                     trade = buy_price * planned_share_purchase
                     adj_in = trade * (1+commission_adjustment)
@@ -66,7 +66,7 @@ def main():
                
                 if not np.isnan(row[3]):
                     sell_price = row[sell_value]
-                    st.write(sell_price)
+                   # st.write(sell_price)
                     trading = False
                     trade_count += 1
             

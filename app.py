@@ -19,8 +19,10 @@ def main():
         try:
 
             panda_data = pd.read_csv(raw_data)
+            
+            panda_data = panda_data.filter(['time', 'close', 'BUY', 'BUY EXIT'])
+            
             numpy_data = panda_data.iloc[:,:].to_numpy()
-       
     
             st.dataframe(numpy_data)
     #    

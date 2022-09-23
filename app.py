@@ -64,7 +64,7 @@ def main():
                     adj_in = trade * (1+commission_adjustment)
                     portfolio_value -= adj_in
                
-                if not np.isnan(row[3]):
+                if not np.isnan(row[3]) and trading:
                     sell_price = row[sell_value]
                    # st.write(sell_price)
                     trading = False

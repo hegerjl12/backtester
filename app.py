@@ -59,41 +59,41 @@ def main():
                 if not np.isnan(row[2]):
                     buy_price = row[buy_value]
                     st.write(buy_price)
-    #                trading = True
-    #                trade = buy_price * planned_share_purchase
-    #                adj_in = trade * (1+commission_adjustment)
-    #                portfolio_value -= adj_in
+                    trading = True
+                    trade = buy_price * planned_share_purchase
+                    adj_in = trade * (1+commission_adjustment)
+                    portfolio_value -= adj_in
                
                 if not np.isnan(row[3]):
                     sell_price = row[sell_value]
                     st.write(sell_price)
-    #                trading = False
-    #                trade_count += 1
+                    trading = False
+                    trade_count += 1
             
-     #           if not trading:
-     #               adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
-     #               portfolio_value += adj_out
-     #               profit += (adj_out - adj_in)
-     #               adj_in = 0
-     #               adj_out = 0
-     #               trade = 0
-     #               buy_price = 0
-     #               sell_price = 0
+                if not trading:
+                    adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+                    portfolio_value += adj_out
+                    profit += (adj_out - adj_in)
+                    adj_in = 0
+                    adj_out = 0
+                    trade = 0
+                    buy_price = 0
+                    sell_price = 0
                     
                 
-     #      col1, col2, col3, col4 = st.columns(4)
-#
-       #     with col1:
-    #            st.metric("Profit", round(profit,2), delta=round(profit,2))
+           col1, col2, col3, col4 = st.columns(4)
 
-     #       with col2:
-     #           st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
+            with col1:
+                st.metric("Profit", round(profit,2), delta=round(profit,2))
+
+            with col2:
+                st.metric("Portfolio Value", round(portfolio_value,2), delta=str(str(round((((portfolio_value/initial_portfolio_value)-1)*100),0)) + "%"))
             
-     #       with col3:
-     #           st.metric("Number of Trades", trade_count)
+            with col3:
+                st.metric("Number of Trades", trade_count)
 
-      #      with col4:
-      #          st.metric("Days", str(difference))
+            with col4:
+                st.metric("Days", str(difference))
             
         except ValueError:
             st.warning("Upload Error")

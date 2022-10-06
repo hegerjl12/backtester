@@ -41,6 +41,7 @@ def main():
             trade_count = 0
             buy_select = st.radio("Select Buy Trigger", ("Immediate", "Bar Close"))
             sell_select = st.radio("Select Sell Trigger", ("Immediate", "Bar Close"))
+            stock_or_crypto = st.radio("Select Stock or Crypto", ("Stock", "Crypto"))
             if buy_select == "Immediate":
                 buy_value = 2
             if buy_select == "Bar Close":
@@ -49,9 +50,14 @@ def main():
                 sell_value = 3
             if sell_select == "Bar Close":
                 sell_value = 1
+            if stock_or_crypto == "Sock":
+                commission_adjustment = 0
+            if stock_or_crypto == "Crypto":
+                commission_adjustment = .0025
+                
             initial_portfolio_value = st.number_input("Enter Portfolio Value at Start", min_value=1, value=5000)
             portfolio_value = initial_portfolio_value
-            commission_adjustment = .0025
+            
             trade = 0
             planned_share_purchase = st.number_input('Enter Number of Shares Trading', min_value=2)
 
@@ -71,7 +77,8 @@ def main():
                     trade_count += 1
             
                 if not trading:
-                    adj_out = ((sell_price * planned_share_purchase) * (1-commission_adjustment))
+                    trade = ((sell_price * planned_share_purchase)
+                    adj_out = trade * (1-commission_adjustment))
                     portfolio_value += adj_out
                     profit += (adj_out - adj_in)
                     adj_in = 0

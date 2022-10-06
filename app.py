@@ -78,7 +78,7 @@ def main():
             
                 if not trading:
                     trade = (sell_price * planned_share_purchase)
-                    adj_out = trade * (1-commission_adjustment))
+                    adj_out = trade * (1-commission_adjustment)
                     portfolio_value += adj_out
                     profit += (adj_out - adj_in)
                     adj_in = 0

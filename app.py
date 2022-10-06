@@ -39,6 +39,7 @@ def main():
             buy_price = 0
             sell_price = 0
             trade_count = 0
+            commission_adjustment = 0
             buy_select = st.radio("Select Buy Trigger", ("Immediate", "Bar Close"))
             sell_select = st.radio("Select Sell Trigger", ("Immediate", "Bar Close"))
             stock_or_crypto = st.radio("Select Stock or Crypto", ("Stock", "Crypto"))

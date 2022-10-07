@@ -89,8 +89,9 @@ def main():
                     sell_price = 0
                     
             if trading:
-                sell_price = buy_price
-                portfolio_value += sell_price
+                adj_out = adj_in
+                portfolio_value += adj_out
+                st.write('test')
                 
             col1, col2, col3, col4 = st.columns(4)
 

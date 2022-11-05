@@ -39,6 +39,7 @@ def main():
             buy_price = 0
             sell_price = 0
             trade_count = 0
+            winning_trade = 0
             commission_adjustment = 0
             buy_select = st.radio("Select Buy Trigger", ("Immediate", "Bar Close"))
             sell_select = st.radio("Select Sell Trigger", ("Immediate", "Bar Close"))
@@ -82,6 +83,8 @@ def main():
                     adj_out = trade * (1-commission_adjustment)
                     portfolio_value += adj_out
                     profit += (adj_out - adj_in)
+                    if (adj_out-adj_in) > 0:
+                        winning_trade += 1
                     adj_in = 0
                     adj_out = 0
                     trade = 0
@@ -93,7 +96,7 @@ def main():
                 portfolio_value += adj_out
                 st.write('test')
                 
-            col1, col2, col3, col4 = st.columns(4)
+            col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
                 st.metric("Profit", round(profit,2), delta=round(profit,2))
@@ -106,6 +109,9 @@ def main():
 
             with col4:
                 st.metric("Days", str(difference))
+
+            with col5:
+                st.metric("Winning Trades", str(winning_trade))
             
         except ValueError:
             st.warning("Upload Error")
